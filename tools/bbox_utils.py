@@ -80,22 +80,6 @@ def findClockwiseAngle(self, other):
     # using cross-product formula
     return -math.degrees(math.asin((unit_self[0] * unit_other[1] - unit_self[1] * unit_other[0])))
 
-def clip_coordinates(points, width, height):
-    # Extract x and y coordinates from the input array
-    x = points[:, 0]
-    y = points[:, 1]
-
-    # Clip x-coordinates to the range (0, width)
-    x_clipped = np.clip(x, 0, width)
-
-    # Clip y-coordinates to the range (0, height)
-    y_clipped = np.clip(y, 0, height)
-
-    # Combine the clipped x and y coordinates into a new array
-    clipped_coordinates = np.column_stack((x_clipped, y_clipped))
-
-    return clipped_coordinates
-
 def four_points_to_oriented_topleft(points):
     """Convert rectangle format from array of points to [top-left point, width, height, angle] 
 
